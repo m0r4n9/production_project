@@ -16,7 +16,6 @@ export const Sidebar = ({className}: SidebarProps) => {
         setCollapsed(prevState => !prevState)
     }
 
-
     return (
         <div
             className={classNames(cls.Sidebar, {[cls.collapsed]: collapsed}, [className])}
