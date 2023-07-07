@@ -13,5 +13,3 @@ export const PageLoader = ({className}: PageLoaderProps) => {
         </div>
     );
 };
-
-

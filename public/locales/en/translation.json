@@ -1,5 +1,8 @@
 {
   "Тестовый пример": "Test example",
   "Язык": "English",
-  "Страница не найдена": "Page not found"
+  "Страница не найдена": "Page not found",
+  "Войти": "Sign in",
+  "increment": "increment",
+  "decrement": "decrement"
 }

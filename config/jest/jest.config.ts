@@ -1,31 +1,15 @@
-/*
- * For a detailed explanation regarding each configuration property and type check, visit:
- * https://jestjs.io/docs/configuration
- */
+import path from "path";
 
 export default {
-  // All imported modules in your tests should be mocked automatically
-  // automock: false,
-
-  // Stop running tests after `n` failures
-  // bail: 0,
-
-  // The directory where Jest should store its cached dependency information
-  // cacheDirectory: "/private/var/folders/pr/9kq3bfkd4r98pg_zpqz4nnzh0000gn/T/jest_dx",
-
-  // Automatically clear mock calls, instances and results before every test
   clearMocks: true,
+
+  globals: {
+    '__IS_DEV__': true,
+  },
 
   coveragePathIgnorePatterns: [
     "/node_modules/"
   ],
-
-  // coverageReporters: [
-  //   "json",
-  //   "text",
-  //   "lcov",
-  //   "clover"
-  // ],
 
   moduleFileExtensions: [
     "js",
@@ -40,6 +24,9 @@ export default {
     "node_modules"
   ],
 
+  modulePaths: [
+    "<rootDir>src",
+  ],
 
   testMatch: [
     // '<rootDir>src/**/*(*.)@(spec|test).[tj]?s?(x)',
@@ -48,7 +35,16 @@ export default {
   ],
 
   rootDir: '../../',
+  setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.ts'],
 
+  moduleNameMapper: {
+    // '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+    //     '<rootDir>/__mocks__/fileMock.js',
+    '\\.s?css': 'identity-obj-proxy',
+    '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+  },
+
+  testEnvironment: "jsdom",
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
@@ -82,8 +78,6 @@ export default {
   // A path to a module which exports an async function that is triggered once after all test suites
   // globalTeardown: undefined,
 
-  // A set of global variables that need to be available in all test environments
-  // globals: {},
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",
@@ -143,9 +137,6 @@ export default {
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],
-
-  // The test environment that will be used for testing
-  testEnvironment: "jsdom",
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
