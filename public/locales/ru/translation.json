@@ -4,5 +4,7 @@
   "Страница не найдена": "Страница не найдена",
   "Войти": "Войти",
   "increment": "increment",
-  "decrement": "decrement"
+  "decrement": "decrement",
+  "Введите username": "Введите username",
+  "Введите пароль": "Введите пароль"
 }

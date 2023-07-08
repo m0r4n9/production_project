@@ -4,5 +4,7 @@
   "Страница не найдена": "Page not found",
   "Войти": "Sign in",
   "increment": "increment",
-  "decrement": "decrement"
+  "decrement": "decrement",
+  "Введите username": "Enter username",
+  "Введите пароль": "Enter password"
 }

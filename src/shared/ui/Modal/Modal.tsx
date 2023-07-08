@@ -9,12 +9,14 @@ interface ModalProps {
     children?: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
+    lazy?: boolean;
 }
 
 const ANIMATION_CLOSE_DELAY = 300;
 
-export const Modal = ({className, children, isOpen, onClose}: ModalProps) => {
+export const Modal = ({className, children, isOpen, onClose, lazy}: ModalProps) => {
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const timeRef = useRef<ReturnType<typeof setTimeout>>();
     const {theme} = useTheme();
 
@@ -44,6 +46,12 @@ export const Modal = ({className, children, isOpen, onClose}: ModalProps) => {
         }
     }, [closeHandler]);
 
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen])
+
     // Почитать
     // ESlint hooks react смотрит зависимости
     useEffect(() => {
@@ -56,6 +64,10 @@ export const Modal = ({className, children, isOpen, onClose}: ModalProps) => {
             window.removeEventListener('keydown', onKeyDown);
         }
     }, [isOpen, onKeyDown])
+
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal>
