@@ -1,6 +1,8 @@
 {
   "Тестовый пример": "Test example",
   "Язык": "English",
+  "О сайте": "About us",
+  "Главная страница": "Main page",
   "Страница не найдена": "Page not found",
   "Войти": "Sign in",
   "increment": "increment",
@@ -9,5 +11,6 @@
   "Введите пароль": "Enter password",
   "Форма авторизации": "Authorization form",
   "Вы ввели неправильный логин или пароль": "You have entered an incorrect username or password",
-  "Выйти": "Выйти"
+  "Выйти": "Выйти",
+  "Профиль": "Profile"
 }

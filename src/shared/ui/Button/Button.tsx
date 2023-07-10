@@ -1,6 +1,6 @@
 import {classNames} from "shared/lib/classNames/classNames";
 import cls from "./Button.module.scss";
-import {ButtonHTMLAttributes, FC} from "react";
+import {ButtonHTMLAttributes, FC, memo} from "react";
 
 export enum ThemeButton {
     CLEAR = 'clear',
@@ -8,7 +8,7 @@ export enum ThemeButton {
     OUTLINE = 'outline',
     BACKGROUND = 'background',
     BACKGROUND_INVERTED = 'backgroundInverted',
-};
+}
 
 export enum ButtonSize {
     M = 'size_m',
@@ -24,7 +24,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     disabled?: boolean;
 }
 
-export const Button: FC<ButtonProps> = (props) => {
+// Button можно использовать с children т.к. в 99% случаев children в button - это просто строка,
+// которая не будет меняться и не будет тянуть за собой сложную древовидную структуру !!!
+export const Button: FC<ButtonProps> = memo((props) => {
     const {className, theme, children, square, size, disabled, ...otherProps} = props;
 
     const mods: Record<string, boolean> = {
@@ -42,6 +44,6 @@ export const Button: FC<ButtonProps> = (props) => {
             {children}
         </button>
     );
-};
+});
 
 export default Button;
