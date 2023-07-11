@@ -3,7 +3,7 @@ import cls from './Sidebar.module.scss';
 import React, {memo, useMemo, useState} from "react";
 import {ThemeSwitcher} from "shared/ui/ThemeSwitcher";
 import LangSwithcer from "shared/ui/LangSwitcher/LangSwitcher";
-import Button, {ButtonSize, ThemeButton} from "shared/ui/Button/Button";
+import {Button, ButtonSize, ThemeButton} from "shared/ui/Button/Button";
 import {SidebarItemList} from "../../model/items";
 import {SidebarItem} from "../SidebarItem/SidebarItem";
 

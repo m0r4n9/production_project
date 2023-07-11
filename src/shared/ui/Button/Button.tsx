@@ -1,4 +1,4 @@
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames, Mods} from "shared/lib/classNames/classNames";
 import cls from "./Button.module.scss";
 import {ButtonHTMLAttributes, FC, memo} from "react";
 
@@ -27,9 +27,17 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 // Button можно использовать с children т.к. в 99% случаев children в button - это просто строка,
 // которая не будет меняться и не будет тянуть за собой сложную древовидную структуру !!!
 export const Button: FC<ButtonProps> = memo((props) => {
-    const {className, theme, children, square, size, disabled, ...otherProps} = props;
+    const {
+        className,
+        theme = ThemeButton.OUTLINE,
+        children,
+        square,
+        size = ButtonSize.M,
+        disabled,
+        ...otherProps
+    } = props;
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls[theme]]: true,
         [cls.square]: square,
         [cls[size]]: true,
@@ -45,5 +53,3 @@ export const Button: FC<ButtonProps> = memo((props) => {
         </button>
     );
 });
-
-export default Button;
