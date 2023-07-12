@@ -3,13 +3,15 @@ import {useTranslation} from "react-i18next"
 import {DynamicModuleLoader, ReducersList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {
     fetchProfileData,
-    getProfileIsLoading,
     getProfileError,
+    getProfileForm,
+    getProfileIsLoading,
+    getProfileReadonly,
+    getProfileValidateErrors,
+    profileActions,
     ProfileCard,
     profileReducer,
-    profileActions,
-    getProfileReadonly,
-    getProfileForm
+    ValidateProfileError
 } from "entities/Profile";
 import {useCallback, useEffect} from "react";
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch";
@@ -17,6 +19,7 @@ import {useSelector} from "react-redux";
 import {ProfilePageHeader} from "./ProfilePageHeader/ProfilePageHeader";
 import {Currency} from "entities/Currency";
 import {Country} from "entities/Country";
+import {Text, TextTheme} from "shared/ui/Text/Text";
 
 const reducers: ReducersList = {
     profile: profileReducer
@@ -27,14 +30,26 @@ interface ProfilePageProps {
 }
 
 const ProfilePage = ({className}: ProfilePageProps) => {
-    const {t} = useTranslation();
+    const {t} = useTranslation('profile');
     const dispatch = useAppDispatch();
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
+    const validateErrors = useSelector(getProfileValidateErrors);
+
+    const validateErrorTranslate = {
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+        [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректная регион'),
+        [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+        [ValidateProfileError.SERVER_ERROR]: t('Северная ошибка при сохранении')
+    }
 
     useEffect(() => {
+        // if (__PROJECT__ !== 'storybook') {
+        //     Это нужно для того, чтобы storybook не обращался к серверу с запросами
+        // }
         dispatch(fetchProfileData());
     }, [dispatch]);
 
@@ -67,16 +82,23 @@ const ProfilePage = ({className}: ProfilePageProps) => {
 
     const onChangeCurrency = useCallback((currency: Currency) => {
         dispatch(profileActions.updateProfile({currency}));
-    },[]);
+    }, []);
 
     const onChangeCountry = useCallback((country: Country) => {
         dispatch(profileActions.updateProfile({country}));
-    },[]);
+    }, []);
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader/>
+                {validateErrors?.length && validateErrors.map((err) => (
+                    <Text
+                        key={err}
+                        theme={TextTheme.ERROR}
+                        text={validateErrorTranslate[err]}
+                    />
+                ))}
                 <ProfileCard
                     data={formData}
                     isLoading={isLoading}
