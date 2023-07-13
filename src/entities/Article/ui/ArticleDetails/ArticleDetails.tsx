@@ -29,7 +29,7 @@ interface ArticleDetailsProps {
 }
 
 const reducersList: ReducersList = {
-    article: articleDetailsReducer
+    articleDetails: articleDetailsReducer
 }
 
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
