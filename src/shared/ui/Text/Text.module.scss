@@ -31,3 +31,33 @@
 .center {
   text-align: center;
 }
+
+.size_m {
+  .title {
+    font-size: var(--font-size-l);
+  }
+
+  .text {
+    font-size: var(--font-size-m);
+  }
+}
+
+.size_l {
+  .title {
+    font-size: var(--font-size-xl);
+  }
+
+  .text {
+    font-size: var(--font-size-l);
+  }
+}
+
+.size_xl {
+  .title {
+
+  }
+
+  .text {
+
+  }
+}

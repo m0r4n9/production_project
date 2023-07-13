@@ -12,6 +12,10 @@
   --font-line-l: 32px;
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
 
+  --font-size-xl: 32px;
+  --font-line-xl: 40px;
+  --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family);
+
   // Размеры
   --navbar-height: 50px;
 
@@ -20,6 +24,7 @@
 
   // z - Индексы
   --modal-z-index: 10;
+  --button-toggle-sidebar: 100;
 
   //  Цвета
   --overlay-color: rgba(0 0 0 / 60%);
