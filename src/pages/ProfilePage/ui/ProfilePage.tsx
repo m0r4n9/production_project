@@ -20,6 +20,7 @@ import {ProfilePageHeader} from "./ProfilePageHeader/ProfilePageHeader";
 import {Currency} from "entities/Currency";
 import {Country} from "entities/Country";
 import {Text, TextTheme} from "shared/ui/Text/Text";
+import {useParams} from "react-router-dom";
 
 const reducers: ReducersList = {
     profile: profileReducer
@@ -32,6 +33,7 @@ interface ProfilePageProps {
 const ProfilePage = ({className}: ProfilePageProps) => {
     const {t} = useTranslation('profile');
     const dispatch = useAppDispatch();
+    const {id} = useParams<{ id: string }>();
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
@@ -50,7 +52,9 @@ const ProfilePage = ({className}: ProfilePageProps) => {
         // if (__PROJECT__ !== 'storybook') {
         //     Это нужно для того, чтобы storybook не обращался к серверу с запросами
         // }
-        dispatch(fetchProfileData());
+        if (id) {
+            dispatch(fetchProfileData(id));
+        }
     }, [dispatch]);
 
     const onChangeFirstname = useCallback((value?: string) => {

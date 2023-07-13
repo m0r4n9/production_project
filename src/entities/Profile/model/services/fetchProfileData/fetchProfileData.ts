@@ -6,14 +6,14 @@ import {Profile} from '../../types/profile';
 // проблема была в ThunkConfig
 export const fetchProfileData = createAsyncThunk<
     Profile,
-    void,
+    string,
     ThunkConfig<string>
 >(
     'profile/fetchProfileData',
-    async (_, thunkAPI) => {
+    async (profileId, thunkAPI) => {
         const {extra, rejectWithValue} = thunkAPI;
         try {
-            const response = await extra.api.get<Profile>('/profile');
+            const response = await extra.api.get<Profile>(`/profile/${profileId}`);
             return response.data
         } catch (e) {
             console.log(e);
