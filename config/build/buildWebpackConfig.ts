@@ -15,6 +15,8 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
             filename: "[name].[contenthash].js",
             path: paths.build,
             clean: true,
+            // Для динамических URL на примере .../articles/:id
+            publicPath: '/'
         },
         module: {
             // Конфигурируем loader. Они обрабатывают файлы с расширениями, которые выходят за рамки js
