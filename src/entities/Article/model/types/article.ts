@@ -51,6 +51,6 @@ export interface Article {
     img: string;
     createdAt: string;
     views: number;
-    types: ArticleType[];
+    type: ArticleType[];
     blocks: ArticleBlock[];
 }
