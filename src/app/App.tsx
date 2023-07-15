@@ -15,7 +15,7 @@ const App = () => {
 
     useEffect(() => {
         dispatch(userActions.initAuthData());
-    }, [dispatch])
+    }, [dispatch]);
 
     return (
         <div className={classNames('app', {}, [theme])}>
