@@ -24,10 +24,14 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        const mountedReducers = store.reducerManager.getMountedReducers();
         Object.entries(reducers).forEach(([name, reducer]) => {
-            // Так делать нельзя особо, но тут мы точно знаем, что тут всегда будет ключ !!!
-            store.reducerManager.add(name as StateSchemaKey, reducer);
-            dispatch({type: `@INIT ${name} reducer`});
+            const mounted = mountedReducers[name as StateSchemaKey];
+            if (!mounted) {
+                // Так делать нельзя особо, но тут мы точно знаем, что тут всегда будет ключ !!!
+                store.reducerManager.add(name as StateSchemaKey, reducer);
+                dispatch({type: `@INIT ${name} reducer`});
+            }
         })
 
         return () => {

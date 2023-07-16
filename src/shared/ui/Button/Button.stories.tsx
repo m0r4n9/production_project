@@ -15,13 +15,22 @@ export const Primary: Story = {
     args: {
         children: 'Text',
     },
+    decorators: [
+        (Story) => (
+            <ThemeProvider initialTheme={Theme.DARK}>
+                <div className={`app ${Theme.DARK}`}>
+                    <Story/>
+                </div>
+            </ThemeProvider>
+        )
+    ]
 };
 
 export const Clear: Story = {
     args: {
         ...Primary.args,
-        theme: ThemeButton.CLEAR
-    },
+        theme: ThemeButton.CLEAR,
+    }
 };
 
 export const ClearInverted: Story = {
@@ -57,13 +66,4 @@ export const OutlineDark: Story = {
     args: {
         ...Outline.args
     },
-    decorators: [
-        (Story) => (
-            <ThemeProvider initialTheme={Theme.DARK}>
-                <div className={`app ${Theme.DARK}`}>
-                    <Story/>
-                </div>
-            </ThemeProvider>
-        )
-    ]
 }
