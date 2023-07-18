@@ -1,5 +1,4 @@
 import {classNames} from "shared/lib/classNames/classNames";
-import cls from './ArticleDetailsPageHeader.module.scss';
 import {useTranslation} from "react-i18next"
 import {memo, useCallback} from 'react';
 import {Button, ThemeButton} from "shared/ui/Button/Button";
@@ -9,6 +8,7 @@ import {useSelector} from "react-redux";
 import {getUserAuthData} from "entities/User";
 import {getArticleDetailsData} from "entities/Article";
 import {getCanEditArticle} from "../../model/selectors/article";
+import {HStack} from "shared/ui/Stack/HStack/HStack";
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;
@@ -31,7 +31,11 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
     }, [article?.id, navigate]);
 
     return (
-        <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
+        <HStack
+            max
+            justify='between'
+            className={classNames('', {}, [className])}
+        >
             <Button theme={ThemeButton.OUTLINE} onClick={onBackToList}>
                 {t('Назад к списку')}
             </Button>
@@ -39,11 +43,10 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
                 <Button
                     theme={ThemeButton.OUTLINE}
                     onClick={onEditArticle}
-                    className={cls.createLink}
                 >
                     {t('Редактировать')}
                 </Button>
             )}
-        </div>
+        </HStack>
     );
 });
