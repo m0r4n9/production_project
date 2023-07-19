@@ -2,6 +2,11 @@
   //--font-family-main: consolas, "Times New Roman", serif;
   font-family: Consolas, monaco, monospace;
 
+  // Маленький размер шрифта
+  --font-size-s: 12px;
+  --font-line-s: 20px;
+  --font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+
   // Средний размер шрифта
   --font-size-m: 16px;
   --font-line-m: 24px;
@@ -25,6 +30,9 @@
   // z - Индексы
   --modal-z-index: 10;
   --button-toggle-sidebar: 100;
+
+  // Disabled opacity
+  --disabled-opacity: 0.7;
 
   //  Цвета
   --overlay-color: rgba(0 0 0 / 60%);

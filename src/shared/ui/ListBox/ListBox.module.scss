@@ -1,0 +1,45 @@
+.ListBox {
+  position: relative;
+}
+
+.trigger {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+.options {
+  background-color: var(--listbox-bg);
+  position: absolute;
+  z-index: 100;
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px var(--listbox-bg);
+  min-width: 100%;
+}
+
+.optionTop {
+  bottom: 100%;
+}
+
+.optionsBottom {
+
+}
+
+.item {
+  padding: 10px 20px;
+}
+
+.disabledLabel {
+  opacity: var(--disabled-opacity);
+}
+
+.active {
+  background: var(--inverted-primary-color);
+}
+
+.disabled {
+  //background: var(--inverted-primary-color);
+  opacity: 0.5;
+}

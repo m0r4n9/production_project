@@ -97,7 +97,10 @@ const ProfilePage = ({className}: ProfilePageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page className={classNames('', {}, [className])}>
-                <VStack max gap='16'>
+                <VStack
+                    max
+                    gap='16'
+                >
                     <ProfilePageHeader/>
                     {validateErrors?.length && validateErrors.map((err) => (
                         <Text
