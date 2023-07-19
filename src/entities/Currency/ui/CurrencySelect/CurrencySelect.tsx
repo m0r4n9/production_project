@@ -1,7 +1,4 @@
-import {classNames} from "shared/lib/classNames/classNames";
-import cls from './CurrencySelect.module.scss';
 import {useTranslation} from "react-i18next"
-import {Select} from "shared/ui/Select/Select";
 import {Currency} from "../../model/types/currency";
 import {memo, useCallback} from "react";
 import {ListBox} from "shared/ui/ListBox/ListBox";
@@ -41,7 +38,7 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
             items={options}
             value={value}
             readonly={readonly}
-            direction='top'
+            direction='top right'
             defaultValue={t('Укажите валюту')}
             label={t('Укажите валюту')}
         />

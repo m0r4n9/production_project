@@ -1,7 +1,4 @@
-import {classNames} from "shared/lib/classNames/classNames";
-import cls from './CurrencySelect.module.scss';
 import {useTranslation} from "react-i18next"
-import {Select} from "shared/ui/Select/Select";
 import {memo, useCallback} from "react";
 import {Country} from "../../model/types/country";
 import {ListBox} from "shared/ui/ListBox/ListBox";
@@ -43,7 +40,7 @@ export const CountrySelect = memo((props: CurrencySelectProps) => {
             defaultValue={t('Укажите страну')}
             label={t('Укажите страну')}
             readonly={readonly}
-            direction='top'
+            direction='top right'
             className={className}
         />
     )
