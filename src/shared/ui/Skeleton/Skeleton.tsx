@@ -27,8 +27,6 @@ export const Skeleton = (props: SkeletonProps) => {
         <div
             className={classNames(cls.Skeleton, {}, [className])}
             style={styles}
-        >
-
-        </div>
+        />
     );
 };

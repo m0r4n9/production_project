@@ -22,8 +22,8 @@ export const CommentCard = memo((props: CommentCardProps) => {
     if (isLoading) {
         return (
             <VStack
-                max
-                gap='8'
+                max={true}
+                gap='16'
                 className={classNames(cls.CommentCard, {}, [className, cls.loading])}
             >
                 <div className={cls.header}>
