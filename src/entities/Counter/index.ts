@@ -1,6 +1,6 @@
-import {counterActions, counterReducer} from "entities/Counter/model/slice/counterSlice";
+import {counterReducer} from "entities/Counter/model/slice/counterSlice";
 import {Counter} from "entities/Counter/ui/Counter";
-import {CounterSchema} from "./model/types/counterSchema";
+import type {CounterSchema} from "./model/types/counterSchema";
 
 export {
     counterReducer,

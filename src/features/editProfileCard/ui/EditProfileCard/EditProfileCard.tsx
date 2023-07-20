@@ -17,10 +17,10 @@ import {
 import {ProfileCard} from "entities/Profile";
 import {fetchProfileData} from "../../model/services/fetchProfileData/fetchProfileData";
 import {profileActions, profileReducer} from '../../model/slice/profileSlice';
-import {ValidateProfileError} from '../../model/types/EditProfileCardSchema';
 import {DynamicModuleLoader, ReducersList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { EditProfileCardHeader } from '../EditProfileCardHeader/EditProfileCardHeader';
 import {VStack} from "shared/ui/Stack/VStack/VStack";
+import {ValidateProfileError} from "../../model/consts/consts";
 
 interface EditProfileCardProps {
     className?: string;

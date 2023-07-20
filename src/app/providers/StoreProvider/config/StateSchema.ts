@@ -1,7 +1,12 @@
 import {CounterSchema} from "entities/Counter";
 import {UserSchema} from "entities/User";
 import {LoginSchema} from "features/AuthByUsername";
-import {AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject} from "@reduxjs/toolkit";
+import {
+    AnyAction,
+    CombinedState,
+    EnhancedStore,
+    Reducer,
+    ReducersMapObject} from "@reduxjs/toolkit";
 import {AxiosInstance} from "axios";
 import {ArticleDetailsSchema} from "entities/Article";
 import {ArticleDetailsPageSchema} from "pages/ArticleDetailsPage";

@@ -1,5 +1,5 @@
-import {Currency} from "entities/Currency/model/types/currency";
-import {Country} from "entities/Country/model/types/country";
+import {Currency} from "entities/Currency";
+import {Country} from "entities/Country";
 
 export interface Profile {
     id?: string;
@@ -12,4 +12,3 @@ export interface Profile {
     username?: string,
     avatar?: string
 }
-
