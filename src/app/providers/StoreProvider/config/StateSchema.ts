@@ -2,18 +2,20 @@ import {CounterSchema} from "entities/Counter";
 import {UserSchema} from "entities/User";
 import {LoginSchema} from "features/AuthByUsername";
 import {AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject} from "@reduxjs/toolkit";
-import {ProfileSchema} from "entities/Profile";
 import {AxiosInstance} from "axios";
 import {ArticleDetailsSchema} from "entities/Article";
 import {ArticleDetailsPageSchema} from "pages/ArticleDetailsPage";
 import {AddCommentFormSchema} from "features/addCommentForm";
 import {ArticlesPageSchema} from "pages/ArticlesPage";
 import {ScrollSaveSchema} from "features/ScrollSave";
+import {rtkApi} from "shared/api/rtkApi";
+import {ProfileSchema} from "features/editProfileCard";
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
     scrollSave: ScrollSaveSchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
     // Async Reducers
     loginForm?: LoginSchema;
