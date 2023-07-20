@@ -21,6 +21,8 @@ export const ArticleInfinityList = memo((props: ArticleInfinityListProps) => {
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
 
+
+
     if (error) {
         return (
             <Text title='Произошла ошибка' theme={TextTheme.ERROR}/>
@@ -28,8 +30,9 @@ export const ArticleInfinityList = memo((props: ArticleInfinityListProps) => {
     }
 
     return (
-        <div className={classNames('', {}, [className])}>
+        <div>
             <ArticleList
+                virtualized={false}
                 isLoading={isLoading}
                 view={view}
                 articles={articles}

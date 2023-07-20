@@ -16,7 +16,7 @@
   background: var(--listbox-bg);
   display: flex;
   flex-direction: column;
-  z-index: 100;
+  z-index: var(--dropdown-z-index);
   border-radius: 8px;
   border: 1px solid var(--primary-color);
 }
