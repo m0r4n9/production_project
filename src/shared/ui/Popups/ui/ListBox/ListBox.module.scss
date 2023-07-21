@@ -1,0 +1,16 @@
+.options {
+  background-color: var(--listbox-bg);
+  position: absolute;
+  z-index: var(--dropdown-z-index);
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px var(--listbox-bg);
+  min-width: 100%;
+}
+
+.item {
+  padding: 10px 20px;
+}
+
+.disabledLabel {
+  opacity: var(--disabled-opacity);
+}
