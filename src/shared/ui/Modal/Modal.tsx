@@ -1,9 +1,10 @@
-import {classNames, Mods} from "shared/lib/classNames/classNames";
+import {classNames, Mods} from "../../lib/classNames/classNames";
 import cls from './Modal.module.scss';
-import React, {MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState} from "react";
+import React, {ReactNode} from "react";
 import Portal from "../Portal/Portal";
 import {useTheme} from "app/providers/ThemeProvider";
 import {Overlay} from "../Overlay/Overlay";
+import {useModal} from "../../lib/hooks/useModal/useModal";
 
 interface ModalProps {
     className?: string;
@@ -13,54 +14,30 @@ interface ModalProps {
     lazy?: boolean;
 }
 
-const ANIMATION_CLOSE_DELAY = 300;
 
-export const Modal = ({className, children, isOpen, onClose, lazy}: ModalProps) => {
-    const [isClosing, setIsClosing] = useState(false);
-    const [isMounted, setIsMounted] = useState(false);
-    const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+export const Modal = (props: ModalProps) => {
+    const {
+        className,
+        children,
+        isOpen,
+        onClose,
+        lazy
+    } = props;
     const {theme} = useTheme();
-
-    const closeHandler = useCallback(() => {
-        if (onClose) {
-            setIsClosing(true);
-            timeRef.current = setTimeout(() => {
-                onClose();
-                setIsClosing(false);
-            }, ANIMATION_CLOSE_DELAY)
-        }
-    }, [onClose]);
+    const {
+        close,
+        isClosing,
+        isMounted
+    } = useModal({
+        animationDelay: 300,
+        onClose,
+        isOpen
+    });
 
     const mods: Mods = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
     };
-
-    // Новые ссылки!!!
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key == 'Escape') {
-            closeHandler();
-        }
-    }, [closeHandler]);
-
-    useEffect(() => {
-        if (isOpen) {
-            setIsMounted(true);
-        }
-    }, [isOpen])
-
-    // Почитать
-    // ESlint hooks react смотрит зависимости
-    useEffect(() => {
-        if (isOpen) {
-            window.addEventListener('keydown', onKeyDown);
-        }
-
-        return () => {
-            clearTimeout(timeRef.current);
-            window.removeEventListener('keydown', onKeyDown);
-        }
-    }, [isOpen, onKeyDown])
 
     if (lazy && !isMounted) {
         return null;
@@ -69,10 +46,8 @@ export const Modal = ({className, children, isOpen, onClose, lazy}: ModalProps) 
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}>
-                <Overlay onClick={closeHandler}/>
-                <div
-                    className={cls.content}
-                >
+                <Overlay onClick={close}/>
+                <div className={cls.content}>
                     {children}
                 </div>
             </div>
