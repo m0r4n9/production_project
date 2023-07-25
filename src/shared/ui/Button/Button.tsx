@@ -23,6 +23,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     square?: boolean;
     size?: ButtonSize;
     disabled?: boolean;
+    fullWidth?: boolean;
 }
 
 // Button можно использовать с children т.к. в 99% случаев children в button - это просто строка,
@@ -35,6 +36,7 @@ export const Button: FC<ButtonProps> = memo((props) => {
         square,
         size = ButtonSize.M,
         disabled,
+        fullWidth,
         ...otherProps
     } = props;
 
@@ -43,6 +45,7 @@ export const Button: FC<ButtonProps> = memo((props) => {
         [cls.square]: square,
         [cls[size]]: true,
         [cls.disabled]: disabled,
+        [cls.fullWidth]: fullWidth
     };
 
     return (

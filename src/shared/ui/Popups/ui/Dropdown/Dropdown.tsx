@@ -59,7 +59,7 @@ export const Dropdown = (props: DropdownProps) => {
                     if (item.href) {
                         return (
                             <Menu.Item
-                                key={index}
+                                key={`dropdown-key-${index}`}
                                 as={AppLink}
                                 disabled={item.disabled}
                                 to={item.href}
@@ -71,7 +71,7 @@ export const Dropdown = (props: DropdownProps) => {
 
                     return (
                         <Menu.Item
-                            key={index}
+                            key={`dropdown-key-${index}`}
                             as={Fragment}
                             disabled={item.disabled}
                         >
