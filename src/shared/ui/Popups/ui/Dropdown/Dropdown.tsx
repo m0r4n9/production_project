@@ -3,8 +3,8 @@ import cls from './Dropdown.module.scss';
 import {classNames} from "@/shared/lib/classNames/classNames";
 import {Fragment, ReactNode} from "react";
 import {DropDownDirection} from "@/shared/types/ui";
-import AppLink from "@/shared/ui/AppLink/AppLink";
-import {Button} from "@/shared/ui/Button/Button";
+import {AppLink} from "@/shared/ui/AppLink";
+import {Button} from "@/shared/ui/Button";
 import { mapDirectionClass } from '../../styles/consts';
 import popupCls from '../../styles/pupup.module.scss';
 

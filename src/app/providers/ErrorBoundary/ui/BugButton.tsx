@@ -1,4 +1,4 @@
-import {Button} from "@/shared/ui/Button/Button";
+import {Button} from "@/shared/ui/Button";
 import {useEffect, useState} from "react";
 
 // Компонент для тестирования

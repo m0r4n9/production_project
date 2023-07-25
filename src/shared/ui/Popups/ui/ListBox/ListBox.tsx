@@ -2,8 +2,8 @@ import {Fragment, ReactNode} from 'react'
 import {Listbox as HListBox} from '@headlessui/react'
 import cls from './ListBox.module.scss';
 import {classNames} from "@/shared/lib/classNames/classNames";
-import {Button} from "@/shared/ui/Button/Button";
-import {HStack} from "@/shared/ui/Stack/HStack/HStack";
+import {Button} from "@/shared/ui/Button";
+import {HStack} from "@/shared/ui/Stack";
 import {DropDownDirection} from "@/shared/types/ui";
 import {mapDirectionClass} from "../../styles/consts";
 import popupCls from '../../styles/pupup.module.scss';
@@ -55,7 +55,7 @@ export const ListBox = (props: ListBoxProps) => {
                 onChange={onChange}
                 className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
             >
-                <HListBox.Button className={popupCls.trigger}>
+                <HListBox.Button as='div' className={popupCls.trigger}>
                     <Button disabled={readonly}>
                         {value ?? defaultValue}
                     </Button>

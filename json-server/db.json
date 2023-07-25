@@ -666,6 +666,12 @@
       "userId": "1",
       "text": "dfsdfsd",
       "id": "dIKiJEU"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "sdfds",
+      "id": "c-hJkHI"
     }
   ],
   "users": [
@@ -756,6 +762,13 @@
       "rate": 3,
       "feedback": "",
       "id": "NwM777k"
+    },
+    {
+      "userId": "1",
+      "articleId": "12",
+      "rate": 3,
+      "feedback": "",
+      "id": "yyQ8ZIK"
     }
   ],
   "profile-ratings": [

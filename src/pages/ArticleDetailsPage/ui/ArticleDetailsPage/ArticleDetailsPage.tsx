@@ -4,12 +4,12 @@ import {useTranslation} from "react-i18next"
 import {memo} from "react";
 import {ArticleDetails} from "@/entities/Article";
 import {useParams} from "react-router-dom";
-import {Text, TextAlign, TextTheme} from "@/shared/ui/Text/Text";
+import {Text, TextAlign, TextTheme} from "@/shared/ui/Text";
 import {DynamicModuleLoader, ReducersList} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {Page} from "@/widgets/Page/";
 import {articleDetailsPageReducer} from "../../model/slice";
 import {ArticleDetailsPageHeader} from "@/pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader";
-import {VStack} from "@/shared/ui/Stack/VStack/VStack";
+import {VStack} from "@/shared/ui/Stack";
 import {ArticleRecommendationsList} from "@/features/articleRecomendationsList";
 import {ArticleDetailsComments,} from "../ArticleDetailsComments/ArticleDetailsComments";
 import {ArticleRating} from "@/features/articleRating";
