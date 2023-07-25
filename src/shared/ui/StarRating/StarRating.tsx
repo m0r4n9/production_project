@@ -1,4 +1,4 @@
-import {classNames, Mods} from "@/shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import cls from './StarRating.module.scss';
 import {memo, useState} from 'react';
 import {Icon} from "@/shared/ui/Icon/Icon";
@@ -20,7 +20,7 @@ export const StarRating = memo((props: StarRatingProps) => {
         selectedStars = 0,
         onSelect
     } = props;
-    const [currentStarsCount, setCurrentStarsCount] = useState(0);
+    const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
     const onHover = (starsCount: number) => () => {
