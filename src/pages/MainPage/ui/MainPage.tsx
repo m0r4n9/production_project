@@ -1,7 +1,7 @@
 import {useTranslation} from "react-i18next";
-import {Page} from "widgets/Page";
-import {HStack} from "shared/ui/Stack/HStack/HStack";
-import {Dropdown} from "shared/ui/Popups/ui/Dropdown/Dropdown";
+import {Page} from "@/widgets/Page";
+import {HStack} from "@/shared/ui/Stack/HStack/HStack";
+import {Dropdown} from "@/shared/ui/Popups/ui/Dropdown/Dropdown";
 
 const MainPage = () => {
     const {t} = useTranslation('about');

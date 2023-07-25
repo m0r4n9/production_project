@@ -1,4 +1,4 @@
-import {classNames} from "shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import {memo} from 'react';
 import {useSelector} from "react-redux";
 import {getArticles} from "../../model/slice/articlesPageSlice";
@@ -7,8 +7,8 @@ import {
     getArticlesPageIsLoading,
     getArticlesPageView
 } from "../../model/selectors/articlesPageSelectors";
-import {ArticleList} from "entities/Article";
-import {Text, TextTheme} from "shared/ui/Text/Text";
+import {ArticleList} from "@/entities/Article";
+import {Text, TextTheme} from "@/shared/ui/Text/Text";
 
 interface ArticleInfinityListProps {
     className?: string;
@@ -22,7 +22,6 @@ export const ArticleInfinityList = memo((props: ArticleInfinityListProps) => {
     const view = useSelector(getArticlesPageView);
 
 
-
     if (error) {
         return (
             <Text title='Произошла ошибка' theme={TextTheme.ERROR}/>
@@ -32,7 +31,6 @@ export const ArticleInfinityList = memo((props: ArticleInfinityListProps) => {
     return (
         <div>
             <ArticleList
-                virtualized={false}
                 isLoading={isLoading}
                 view={view}
                 articles={articles}
