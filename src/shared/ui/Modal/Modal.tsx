@@ -6,6 +6,7 @@ import {useTheme} from "app/providers/ThemeProvider";
 import {Overlay} from "../Overlay/Overlay";
 import {useModal} from "../../lib/hooks/useModal/useModal";
 
+
 interface ModalProps {
     className?: string;
     children?: ReactNode;
