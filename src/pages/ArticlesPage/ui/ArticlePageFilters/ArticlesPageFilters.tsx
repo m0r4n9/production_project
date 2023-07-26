@@ -4,11 +4,8 @@ import {useTranslation} from "react-i18next"
 import {memo, useCallback} from 'react';
 import {
     ArticleSortField,
-    ArticleSortSelector,
     ArticleType,
-    ArticleTypeTabs,
-    ArticleView,
-    ArticleViewSelector
+    ArticleView
 } from "@/entities/Article";
 import {articlesPageActions} from "../../model/slice/articlesPageSlice";
 import {useAppDispatch} from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
@@ -25,6 +22,9 @@ import {Input} from "@/shared/ui/Input";
 import {SortOrder} from "@/shared/types";
 import {fetchArticlesList} from "../../model/services/fetchArticlesList/fetchArticlesList";
 import {useDebounce} from "@/shared/lib/hooks/useDebounce/useDebounce";
+import {ArticleTypeTabs} from "@/features/ArticleTypeTabs";
+import {ArticleViewSelector} from "@/features/ArticleViewSelector";
+import {ArticleSortSelector} from "@/features/ArticleSortSelector";
 
 interface ArticlePageFiltersProps {
     className?: string;
