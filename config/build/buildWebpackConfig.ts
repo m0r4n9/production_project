@@ -25,7 +25,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         // Расширения для тех файлов для которых мы не будем указывать расширение при import
         resolve: buildResolvers(options),
         plugins: buildPlugins(options),
-        devtool: isDev ? 'inline-source-map': undefined,
+        devtool: isDev ? 'eval-cheap-source-map': undefined,
         devServer: isDev ? buildDevServer(options) : undefined,
     }
 }
