@@ -14,6 +14,7 @@ import { useSearchParams } from 'react-router-dom';
 import { ArticleInfinityList } from '../ArticleInfinityList/ArticleInfinityList';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { useArticleItemById } from '@/pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import { ArticlePageGreeting } from '@/features/articlePageGreeting';
 
 interface ArticlesPageProps {
     className?: string;
@@ -45,6 +46,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
             >
                 <ArticlesPageFilters />
                 <ArticleInfinityList className={cls.list} />
+                <ArticlePageGreeting />
             </Page>
         </DynamicModuleLoader>
     );
