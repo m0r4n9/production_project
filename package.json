@@ -16,7 +16,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "generate:slice": "node ./scripts/createSlice/index.js",
-    "cleare:cache": "node ./scripts/clear-cache.js"
+    "cleare:cache": "node ./scripts/clear-cache.js",
+    "remove-feature": "ts-node ./scripts/remove-features.ts"
   },
   "keywords": [],
   "author": "",
