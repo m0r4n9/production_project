@@ -2,15 +2,15 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Sidebar.module.scss';
 import clsRedesign from './SidebarRedesign.module.scss';
 import React, { memo, useMemo, useState } from 'react';
-import { ThemeSwitcher } from '@/shared/ui/ThemeSwitcher';
-import { LangSwithcer } from '@/shared/ui/LangSwitcher';
-import { Button, ButtonSize, ThemeButton } from '@/shared/ui/Button';
+import { ThemeSwitcher } from '@/shared/ui/deprecated/ThemeSwitcher';
+import { LangSwithcer } from '@/shared/ui/deprecated/LangSwitcher';
+import { Button, ButtonSize, ThemeButton } from '@/shared/ui/deprecated/Button';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { ToggleFeatures } from '@/shared/lib/features';
-import {AppLogo} from "@/shared/ui/AppLogo";
+import {AppLogo} from "@/shared/ui/deprecated/AppLogo";
 
 interface SidebarProps {
     className?: string;

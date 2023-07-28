@@ -6,7 +6,7 @@ import {useAppDispatch} from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {useSelector} from "react-redux";
 import {Currency} from "@/entities/Currency";
 import {Country} from "@/entities/Country";
-import {Text, TextTheme} from "@/shared/ui/Text";
+import {Text, TextTheme} from "@/shared/ui/deprecated/Text";
 import {getProfileForm} from '../../model/selectors/getProfileForm/getProfileForm';
 import {getProfileIsLoading} from "../../model/selectors/getProfileIsLoading/getProfileIsLoading";
 import {getProfileError} from "../../model/selectors/getProfileError/getProfileError";
@@ -19,7 +19,7 @@ import {fetchProfileData} from "../../model/services/fetchProfileData/fetchProfi
 import {profileActions, profileReducer} from '../../model/slice/profileSlice';
 import {DynamicModuleLoader, ReducersList} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { EditProfileCardHeader } from '../EditProfileCardHeader/EditProfileCardHeader';
-import {VStack} from "@/shared/ui/Stack";
+import {VStack} from "@/shared/ui/deprecated/Stack";
 import {ValidateProfileError} from "../../model/consts/consts";
 
 interface EditProfileCardProps {

@@ -1,6 +1,6 @@
 import cls from './SidebarItem.module.scss';
 import {useTranslation} from "react-i18next"
-import {AppLinkTheme, AppLink} from "@/shared/ui/AppLink";
+import {AppLinkTheme, AppLink} from "@/shared/ui/deprecated/AppLink";
 import React, {memo} from "react";
 import {classNames} from "@/shared/lib/classNames/classNames";
 import {getUserAuthData} from "@/entities/User";

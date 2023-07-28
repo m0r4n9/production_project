@@ -10,7 +10,6 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts';
-import {Card} from "@/shared/ui/Card";
 
 const App = () => {
     const { theme } = useTheme();

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { ArticleDetails } from '@/entities/Article';
 import { useParams } from 'react-router-dom';
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text';
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -12,12 +12,12 @@ import {
 import { Page } from '@/widgets/Page/';
 import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsPageHeader } from '@/pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { ArticleRecommendationsList } from '@/features/articleRecomendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Card } from '@/shared/ui/Card';
+import { Card } from '@/shared/ui/deprecated/Card';
 
 interface ArticleDetailsPageProps {
     className?: string;

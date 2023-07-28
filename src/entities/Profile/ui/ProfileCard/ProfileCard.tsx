@@ -1,15 +1,15 @@
 import {classNames, Mods} from "@/shared/lib/classNames/classNames";
 import cls from './ProfileCard.module.scss';
 import {useTranslation} from "react-i18next"
-import {Text, TextAlign, TextTheme} from '@/shared/ui/Text';
-import {Input} from "@/shared/ui/Input";
+import {Text, TextAlign, TextTheme} from '@/shared/ui/deprecated/Text';
+import {Input} from "@/shared/ui/deprecated/Input";
 import {Profile} from "../../model/types/profile";
-import {Loader} from "@/shared/ui/Loader";
-import {Avatar} from "@/shared/ui/Avatar";
+import {Loader} from "@/shared/ui/deprecated/Loader";
+import {Avatar} from "@/shared/ui/deprecated/Avatar";
 import {Currency, CurrencySelect} from "@/entities/Currency";
 import {Country, CountrySelect} from "@/entities/Country";
-import {VStack} from "@/shared/ui/Stack";
-import {HStack} from "@/shared/ui/Stack";
+import {VStack} from "@/shared/ui/deprecated/Stack";
+import {HStack} from "@/shared/ui/deprecated/Stack";
 
 interface ProfileCardProps {
     className?: string;
@@ -27,6 +27,9 @@ interface ProfileCardProps {
     onChangeCountry?: (country: Country) => void;
 }
 
+/**
+ * @deprecated
+ */
 export const ProfileCard = (props: ProfileCardProps) => {
     const {
         className,
