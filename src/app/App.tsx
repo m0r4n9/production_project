@@ -43,6 +43,7 @@ const App = () => {
             off={
                 <div className={classNames('app', {}, [theme])}>
                     <Suspense fallback="">
+                        <Navbar/>
                         <div className="content-page">
                             <Sidebar />
                             <AppRoute />
