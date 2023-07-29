@@ -3,8 +3,8 @@ import cls from './Card.module.scss';
 import { HTMLAttributes, memo, ReactNode } from 'react';
 
 export type CardVariant = 'normal' | 'outline' | 'light';
-
 export type CardPadding = '0' | '8' | '16' | '24';
+export type CardBorder = 'round' | 'normal';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
@@ -12,6 +12,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
     variant?: CardVariant;
     fullWidth?: boolean;
     padding?: CardPadding;
+    border?: CardBorder;
 }
 
 const mapPaddingToClass: Record<CardPadding, string> = {
@@ -25,9 +26,10 @@ export const Card = memo((props: CardProps) => {
     const {
         className,
         children,
-        variant = 'outline',
+        variant = 'normal',
         fullWidth,
         padding = 8,
+        border = 'normal',
         ...otherProps
     } = props;
 
@@ -40,7 +42,7 @@ export const Card = memo((props: CardProps) => {
                 {
                     [cls.fullWidth]: fullWidth,
                 },
-                [className, cls[paddingClass], cls[variant]],
+                [className, cls[paddingClass], cls[variant], cls[border]],
             )}
             {...otherProps}
         >
