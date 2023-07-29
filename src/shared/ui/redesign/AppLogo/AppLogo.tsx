@@ -3,17 +3,15 @@ import cls from './AppLogo.module.scss';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import AppSvg from '../../../assets/icons/app-image.svg';
-import { HStack } from '../Stack';
+import { HStack } from '../../deprecated/Stack';
 
 interface AppLogoProps {
     className?: string;
+    size?: number;
 }
 
-/**
- * @deprecated
- */
 export const AppLogo = memo((props: AppLogoProps) => {
-    const { className } = props;
+    const { className, size = 50} = props;
     const { t } = useTranslation();
 
     return (
@@ -24,7 +22,7 @@ export const AppLogo = memo((props: AppLogoProps) => {
         >
             <div className={cls.gradientBig}></div>
             <div className={cls.gradientSmall}></div>
-            <AppSvg className={cls.appLogo}/>
+            <AppSvg width={size} height={size} color='black' className={cls.appLogo}/>
         </HStack>
     );
 });

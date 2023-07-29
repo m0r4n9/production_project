@@ -1,6 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Sidebar.module.scss';
-import clsRedesign from './SidebarRedesign.module.scss';
 import React, { memo, useMemo, useState } from 'react';
 import { ThemeSwitcher } from '@/shared/ui/deprecated/ThemeSwitcher';
 import { LangSwithcer } from '@/shared/ui/deprecated/LangSwitcher';
@@ -10,7 +9,9 @@ import { useSelector } from 'react-redux';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { VStack } from '@/shared/ui/deprecated/Stack';
 import { ToggleFeatures } from '@/shared/lib/features';
-import {AppLogo} from "@/shared/ui/deprecated/AppLogo";
+import { AppLogo } from '@/shared/ui/redesign/AppLogo';
+import { Icon } from '@/shared/ui/redesign/Icon';
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 
 interface SidebarProps {
     className?: string;
@@ -21,6 +22,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     const sidebarItemsList = useSelector(getSidebarItems);
 
     const onToggle = () => {
+        console.log(collapsed);
         setCollapsed((prevState) => !prevState);
     };
 
@@ -43,12 +45,28 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 <aside
                     data-testid="sidebar"
                     className={classNames(
-                        clsRedesign.SidebarRedesign,
-                        { [cls.collapsed]: collapsed },
+                        cls.SidebarRedesign,
+                        { [cls.collapsedRedesign]: collapsed },
                         [className],
                     )}
                 >
-                    <AppLogo className={cls.appLogo}/>
+                    <AppLogo
+                        size={collapsed ? 30 : 50}
+                        className={cls.appLogo}
+                    />
+                    <VStack align="start" gap={'8'} className={cls.items}>
+                        {itemList}
+                    </VStack>
+                    <Icon
+                        Svg={ArrowIcon}
+                        clickable
+                        onClick={onToggle}
+                        className={cls.collapseBtn}
+                    />
+                    <div className={cls.switchers}>
+                        <ThemeSwitcher />
+                        <LangSwithcer short={collapsed} className={cls.lang} />
+                    </div>
                 </aside>
             }
             off={
@@ -75,7 +93,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                     </VStack>
                     <div className={cls.switchers}>
                         <ThemeSwitcher />
-                        <LangSwithcer className={cls.lang} />
+                        <LangSwithcer short={collapsed} className={cls.lang} />
                     </div>
                 </aside>
             }
