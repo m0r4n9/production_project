@@ -9,9 +9,6 @@ interface SkeletonProps {
     border?: string;
 }
 
-/**
- * @deprecated
- */
 export const Skeleton = (props: SkeletonProps) => {
     const {
         className,
