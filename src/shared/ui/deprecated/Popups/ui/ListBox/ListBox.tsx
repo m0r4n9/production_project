@@ -3,8 +3,8 @@ import {Listbox as HListBox} from '@headlessui/react'
 import cls from './ListBox.module.scss';
 import {classNames} from "@/shared/lib/classNames/classNames";
 import {Button} from "@/shared/ui/deprecated/Button";
-import {HStack} from "@/shared/ui/deprecated/Stack";
-import {DropDownDirection} from "@/shared/types/ui";
+import {HStack} from "@/shared/ui/redesign/Stack";
+import {DropdownDirection} from "@/shared/types/ui";
 import {mapDirectionClass} from "../../styles/consts";
 import popupCls from '../../styles/pupup.module.scss';
 
@@ -20,12 +20,14 @@ interface ListBoxProps {
     value?: string;
     defaultValue?: string;
     readonly?: boolean;
-    direction?: DropDownDirection;
+    direction?: DropdownDirection;
     label?: string;
     onChange: (value: string) => void;
 }
 
-
+/**
+ * @deprecated
+ */
 export const ListBox = (props: ListBoxProps) => {
     const {
         className,

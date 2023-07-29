@@ -22,8 +22,8 @@ import {ArticleBlock} from "../../model/types/article";
 import {ArticleCodeBlockComponent} from "../ArticleCodeBlockComponent/ArticleCodeBlockComponent";
 import {ArticleImageBlockComponent} from "../ArticleImageBlockComponent/ArticleImageBlockComponent";
 import {ArticleTextBlockComponent} from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
-import {HStack} from "@/shared/ui/deprecated/Stack";
-import {VStack} from "@/shared/ui/deprecated/Stack";
+import {HStack} from "@/shared/ui/redesign/Stack";
+import {VStack} from "@/shared/ui/redesign/Stack";
 import {ArticleBlockType} from "../../model/consts/consts";
 
 interface ArticleDetailsProps {

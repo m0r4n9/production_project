@@ -3,7 +3,7 @@ import cls from './AppLogo.module.scss';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import AppSvg from '../../../assets/icons/app-image.svg';
-import { HStack } from '../../deprecated/Stack';
+import { HStack } from '../Stack';
 
 interface AppLogoProps {
     className?: string;

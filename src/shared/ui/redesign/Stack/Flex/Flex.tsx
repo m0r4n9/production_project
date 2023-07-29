@@ -44,9 +44,6 @@ export interface FlexProps {
     max?: boolean;
 }
 
-/**
- * @deprecated
- */
 export const Flex = memo((props: FlexProps) => {
     const {
         className,

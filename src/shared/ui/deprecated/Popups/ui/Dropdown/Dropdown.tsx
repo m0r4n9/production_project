@@ -2,7 +2,7 @@ import {Menu} from '@headlessui/react'
 import cls from './Dropdown.module.scss';
 import {classNames} from "@/shared/lib/classNames/classNames";
 import {Fragment, ReactNode} from "react";
-import {DropDownDirection} from "@/shared/types/ui";
+import {DropdownDirection} from "@/shared/types/ui";
 import {AppLink} from "@/shared/ui/deprecated/AppLink";
 import {Button} from "@/shared/ui/deprecated/Button";
 import { mapDirectionClass } from '../../styles/consts';
@@ -19,9 +19,12 @@ export interface DropdownProps {
     className?: string;
     items: DropdownItems[];
     trigger?: ReactNode;
-    direction?: DropDownDirection;
+    direction?: DropdownDirection;
 }
 
+/**
+ * @deprecated
+ */
 export const Dropdown = (props: DropdownProps) => {
     const {
         className,

@@ -7,7 +7,7 @@ import { Button, ButtonSize, ThemeButton } from '@/shared/ui/deprecated/Button';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesign/Stack';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { AppLogo } from '@/shared/ui/redesign/AppLogo';
 import { Icon } from '@/shared/ui/redesign/Icon';

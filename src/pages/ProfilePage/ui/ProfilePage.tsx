@@ -1,6 +1,6 @@
 import {classNames} from "@/shared/lib/classNames/classNames";
 import {Page} from "@/widgets/Page";
-import {VStack} from "@/shared/ui/deprecated/Stack";
+import {VStack} from "@/shared/ui/redesign/Stack";
 import {EditProfileCard} from "@/features/editProfileCard";
 import {useParams} from "react-router-dom";
 import {useTranslation} from "react-i18next";

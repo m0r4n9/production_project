@@ -7,7 +7,7 @@ import {useSelector} from "react-redux";
 import {getUserAuthData} from "@/entities/User";
 import {getArticleDetailsData} from "@/entities/Article";
 import {getCanEditArticle} from "../../model/selectors/article";
-import {HStack} from "@/shared/ui/deprecated/Stack";
+import {HStack} from "@/shared/ui/redesign/Stack";
 import {getRouteArticleEdit, getRouteArticles} from "@/shared/const/router";
 
 interface ArticleDetailsPageHeaderProps {

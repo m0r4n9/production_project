@@ -3,9 +3,9 @@ import React, {
     memo, ReactNode, useCallback, useEffect,
 } from 'react';
 import {useTheme} from '@/app/providers/ThemeProvider';
-import {Overlay} from '../Overlay/Overlay';
+import {Overlay} from '@/shared/ui/redesign/Overlay/Overlay';
 import cls from './Drawer.module.scss';
-import {Portal} from '../Portal/Portal';
+import {Portal} from '@/shared/ui/redesign/Portal/Portal';
 import {AnimationProvider, useAnimationLibs} from "@/shared/lib/components/AnimationProvider";
 
 interface DrawerProps {

@@ -1,12 +1,12 @@
 import {useTranslation} from "react-i18next"
 import {memo, useCallback, useState} from 'react';
 import {Card} from "@/shared/ui/deprecated/Card";
-import {VStack} from "@/shared/ui/deprecated/Stack";
+import {VStack} from "@/shared/ui/redesign/Stack";
 import {Text} from "@/shared/ui/deprecated/Text";
 import {StarRating} from "@/shared/ui/deprecated/StarRating";
 import {Modal} from "@/shared/ui/deprecated/Modal";
 import {Input} from "@/shared/ui/deprecated/Input";
-import {HStack} from "@/shared/ui/deprecated/Stack";
+import {HStack} from "@/shared/ui/redesign/Stack";
 import {Button, ThemeButton} from "@/shared/ui/deprecated/Button";
 import {BrowserView, MobileView} from "react-device-detect";
 import {Drawer} from "@/shared/ui/deprecated/Drawer";

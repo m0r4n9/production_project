@@ -9,7 +9,7 @@ import {getAddCommentFormText, getAddCommentFormError} from "../../model/selecto
 import {useAppDispatch} from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {addCommentFormActions, addCommentFormReducer} from "../../model/slice/addCommentFormSlice";
 import {DynamicModuleLoader, ReducersList} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import {HStack} from "@/shared/ui/deprecated/Stack";
+import {HStack} from "@/shared/ui/redesign/Stack";
 
 export interface AddCommentFormProps {
     className?: string;

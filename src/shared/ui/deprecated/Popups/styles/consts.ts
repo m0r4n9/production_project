@@ -1,7 +1,7 @@
-import {DropDownDirection} from "../../../../types/ui";
+import {DropdownDirection} from "../../../../types/ui";
 import cls from './pupup.module.scss';
 
-export const mapDirectionClass: Record<DropDownDirection, string> = {
+export const mapDirectionClass: Record<DropdownDirection, string> = {
     'bottom left': cls.optionBottomLeft,
     'bottom right': cls.optionsBottomRight,
     'top left': cls.optionTopLeft,

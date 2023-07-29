@@ -19,7 +19,7 @@ import {fetchProfileData} from "../../model/services/fetchProfileData/fetchProfi
 import {profileActions, profileReducer} from '../../model/slice/profileSlice';
 import {DynamicModuleLoader, ReducersList} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { EditProfileCardHeader } from '../EditProfileCardHeader/EditProfileCardHeader';
-import {VStack} from "@/shared/ui/deprecated/Stack";
+import {VStack} from "@/shared/ui/redesign/Stack";
 import {ValidateProfileError} from "../../model/consts/consts";
 
 interface EditProfileCardProps {
