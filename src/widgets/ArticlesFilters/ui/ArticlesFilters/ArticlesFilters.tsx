@@ -3,12 +3,14 @@ import cls from './ArticlesFilters.module.scss';
 import { useTranslation } from 'react-i18next';
 import React, { memo } from 'react';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
-import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
+import { Input } from '@/shared/ui/redesign/Input';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import { VStack } from '@/shared/ui/redesign/Stack';
 import { ArticleSortField, ArticleType } from '@/entities/Article';
 import { SortOrder } from '@/shared/types';
 import { Card } from '@/shared/ui/redesign/Card';
+import SearchIcon from '@/shared/assets/icons/search.svg';
+import { Icon } from '@/shared/ui/redesign/Icon';
 
 interface ArticlesFiltersProps {
     className?: string;
@@ -42,9 +44,10 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
             className={classNames(cls.ArticlesFilters, {}, [className])}
         >
             <VStack gap="32">
-                <InputDeprecated
+                <Input
                     placeholder={t('Поиск')}
                     value={search}
+                    addonLeft={<Icon Svg={SearchIcon} />}
                     onChange={onChangeSearch}
                 />
                 <ArticleTypeTabs

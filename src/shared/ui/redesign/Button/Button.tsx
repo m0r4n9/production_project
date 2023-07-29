@@ -1,6 +1,6 @@
-import {classNames, Mods} from "../../../lib/classNames/classNames";
-import cls from "./Button.module.scss";
-import {ButtonHTMLAttributes, FC, memo} from "react";
+import { classNames, Mods } from '../../../lib/classNames/classNames';
+import cls from './Button.module.scss';
+import React, { ButtonHTMLAttributes, FC, memo, ReactNode } from 'react';
 
 export type ButtonVariant = 'clear' | 'outline' | 'filled';
 
@@ -13,6 +13,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     size?: ButtonSize;
     disabled?: boolean;
     fullWidth?: boolean;
+    addonLeft?: ReactNode;
+    addonRight?: ReactNode;
 }
 
 // Button можно использовать с children т.к. в 99% случаев children в button - это просто строка,
@@ -26,21 +28,31 @@ export const Button: FC<ButtonProps> = memo((props) => {
         size = 'm',
         disabled,
         fullWidth,
+        addonLeft,
+        addonRight,
         ...otherProps
     } = props;
 
     const mods: Mods = {
         [cls.square]: square,
         [cls.disabled]: disabled,
-        [cls.fullWidth]: fullWidth
+        [cls.fullWidth]: fullWidth,
+        [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
     };
 
     return (
         <button
-            className={classNames(cls.Button, mods, [className, cls[variant], cls[size]])}
+            className={classNames(cls.Button, mods, [
+                className,
+                cls[variant],
+                cls[size],
+            ])}
             disabled={disabled}
-            {...otherProps}>
+            {...otherProps}
+        >
+            <div className={cls.addonLeft}>{addonLeft}</div>
             {children}
+            <div className={cls.addonRight}>{addonRight}</div>
         </button>
     );
 });
