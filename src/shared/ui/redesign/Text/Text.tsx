@@ -14,6 +14,7 @@ interface TextProps {
     text?: string;
     variant?: TextVariant;
     align?: TextAlign;
+    bold?: boolean;
     size?: TextSize;
 }
 
@@ -36,6 +37,7 @@ export const Text = memo((props: TextProps) => {
         className,
         title,
         text,
+        bold,
         variant = 'primary',
         align = 'left',
         size = 'm',
@@ -46,7 +48,7 @@ export const Text = memo((props: TextProps) => {
 
     return (
         <div
-            className={classNames(cls.Text, {}, [
+            className={classNames(cls.Text, { [cls.bold]: bold }, [
                 className,
                 sizeClass,
                 cls[variant],

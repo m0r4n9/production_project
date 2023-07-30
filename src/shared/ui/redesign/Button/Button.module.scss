@@ -78,3 +78,14 @@
   outline: none;
   border-radius: 34px;
 }
+
+.outline {
+  background: none;
+  border: 1px solid var(--icon-redesigned);
+  outline: none;
+  border-radius: 34px;
+
+  &:hover {
+    border: 1px solid var(--accent-redesigned);
+  }
+}
