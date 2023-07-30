@@ -1,14 +1,14 @@
-import {RouteProps} from 'react-router-dom';
-import {MainPage} from '@/pages/MainPage';
-import {AboutPage} from '@/pages/AboutPage';
-import {NotFoundPage} from '@/pages/NotFoundPage';
-import {ProfilePage} from '@/pages/ProfilePage';
-import {ArticlesPage} from '@/pages/ArticlesPage';
-import {ArticleDetailsPage} from '@/pages/ArticleDetailsPage';
-import {ArticleEditPage} from '@/pages/ArticleEditPage';
-import {AdminPanelPage} from '@/pages/AdminPanelPage';
-import {UserRole} from '@/entities/User';
-import {ForbiddenPage} from '@/pages/ForbiddenPage';
+import { RouteProps } from 'react-router-dom';
+import { MainPage } from '@/pages/MainPage';
+import { AboutPage } from '@/pages/AboutPage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
+import { ProfilePage } from '@/pages/ProfilePage';
+import { ArticlesPage } from '@/pages/ArticlesPage';
+import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
+import { ArticleEditPage } from '@/pages/ArticleEditPage';
+import { AdminPanelPage } from '@/pages/AdminPanelPage';
+import { UserRole } from '@/entities/User';
+import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import {
     AppRoutes,
     getRouteAbout,
@@ -20,61 +20,66 @@ import {
     getRouteArticles,
     getRouteMain,
     getRouteProfile,
+    getRouteSettings,
 } from '@/shared/const/router';
+import { SettingsPage } from '@/pages/SettingsPage';
 
 export type AppRoutesProps = RouteProps & {
     authOnly?: boolean;
     role?: UserRole[];
-}
+};
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
         path: getRouteMain(),
-        element: <MainPage/>
+        element: <MainPage />,
+    },
+    [AppRoutes.SETTINGS]: {
+        path: getRouteSettings(),
+        element: <SettingsPage />,
     },
     [AppRoutes.ABOUT]: {
         path: getRouteAbout(),
-        element: <AboutPage/>
+        element: <AboutPage />,
     },
     [AppRoutes.PROFILE]: {
         path: getRouteProfile(':id'),
-        element: <ProfilePage/>,
-        authOnly: true
-
+        element: <ProfilePage />,
+        authOnly: true,
     },
     [AppRoutes.ARTICLES]: {
         path: getRouteArticles(),
-        element: <ArticlesPage/>,
-        authOnly: true
+        element: <ArticlesPage />,
+        authOnly: true,
     },
     [AppRoutes.ARTICLE_DETAILS]: {
         path: getRouteArticleDetails(':id'),
-        element: <ArticleDetailsPage/>,
-        authOnly: true
+        element: <ArticleDetailsPage />,
+        authOnly: true,
     },
     [AppRoutes.ARTICLE_CREATE]: {
         path: getRouteArticleCreate(),
         // Можно сделать два отдельных файла, если создание сильно отличается от редактирования
-        element: <ArticleEditPage/>,
-        authOnly: true
+        element: <ArticleEditPage />,
+        authOnly: true,
     },
     [AppRoutes.ARTICLE_EDIT]: {
         path: getRouteArticleEdit(':id'),
-        element: <ArticleEditPage/>,
-        authOnly: true
+        element: <ArticleEditPage />,
+        authOnly: true,
     },
     [AppRoutes.ADMIN_PANEL]: {
         path: getRouteAdmin(),
-        element: <AdminPanelPage/>,
+        element: <AdminPanelPage />,
         authOnly: true,
         role: [UserRole.MANAGER, UserRole.ADMIN],
     },
     [AppRoutes.FORBIDDEN]: {
         path: getRouteForbidden(),
-        element: <ForbiddenPage/>,
+        element: <ForbiddenPage />,
     },
     [AppRoutes.NOT_FOUND]: {
         path: '*',
-        element: <NotFoundPage/>
+        element: <NotFoundPage />,
     },
-}
+};
