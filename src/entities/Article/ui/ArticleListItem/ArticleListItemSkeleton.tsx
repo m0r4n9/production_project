@@ -17,6 +17,12 @@ export const ArticleListItemSkeleton = memo(
     (props: ArticleListItemSkeletonProps) => {
         const { className, view } = props;
 
+        const mainClass = toggleFeatures({
+            name: 'isAppRedesign',
+            on: () => cls.ArticleListItemRedesign,
+            off: () => cls.ArticleListItem,
+        });
+
         const Skeleton = toggleFeatures({
             name: 'isAppRedesign',
             on: () => SkeletonRedesign,
@@ -31,19 +37,10 @@ export const ArticleListItemSkeleton = memo(
 
         if (view === ArticleView.BIG) {
             return (
-                <div
-                    className={classNames(cls.ArticleListItem, {}, [
-                        className,
-                        cls[view],
-                    ])}
-                >
+                <div className={classNames(mainClass, {}, [className, cls[view]])}>
                     <Card className={cls.card}>
                         <div className={cls.header}>
-                            <Skeleton
-                                width={30}
-                                height={30}
-                                border={'50%'}
-                            />
+                            <Skeleton width={30} height={30} border={'50%'} />
                             <Skeleton
                                 width={150}
                                 height={16}
@@ -75,12 +72,13 @@ export const ArticleListItemSkeleton = memo(
 
         return (
             <div
-                className={classNames(cls.ArticleListItem, {}, [
+                className={classNames(mainClass, {}, [
                     className,
                     cls[view],
                 ])}
             >
-                <Card>Skeleton
+                <Card>
+                    {/*Skeleton*/}
                     <div className={cls.imageWrapper}>
                         <Skeleton
                             width={200}
@@ -91,11 +89,7 @@ export const ArticleListItemSkeleton = memo(
                     <div className={cls.infoWrapper}>
                         <Skeleton width={130} height={16} />
                     </div>
-                    <Skeleton
-                        width={150}
-                        height={16}
-                        className={cls.title}
-                    />
+                    <Skeleton width={150} height={16} className={cls.title} />
                 </Card>
             </div>
         );

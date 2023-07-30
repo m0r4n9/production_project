@@ -5,6 +5,7 @@ import {DetailedHTMLProps, HTMLAttributes, memo, ReactNode} from 'react';
 export type FlexJustify = 'start' | 'center' | 'end' | 'between';
 export type FlexAlign = 'start' | 'center' | 'end';
 export type FlexDirection = 'row' | 'column';
+export type FlexWrap = 'nowrap' | 'wrap';
 export type FlexGap = '4' | '8' | '16' | '24' | '32';
 
 const justifyClasses: Record<FlexJustify, string> = {
@@ -33,14 +34,13 @@ const gapClasses: Record<FlexGap, string> = {
     32: cls.gap32
 }
 
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
-
 export interface FlexProps {
     className?: string;
     children: ReactNode;
     justify?: FlexJustify;
     align?: FlexAlign;
     direction?: FlexDirection;
+    wrap?: FlexWrap;
     gap?: FlexGap;
     max?: boolean;
 }
@@ -53,7 +53,8 @@ export const Flex = memo((props: FlexProps) => {
         align= 'center',
         direction = 'row',
         gap,
-        max
+        max,
+        wrap = 'nowrap',
     } = props;
 
     const classes = [
@@ -61,6 +62,7 @@ export const Flex = memo((props: FlexProps) => {
         justifyClasses[justify],
         alignClasses[align],
         directionClasses[direction],
+        cls[wrap],
         gap && gapClasses[gap]
     ]
 
