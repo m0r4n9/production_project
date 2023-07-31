@@ -678,6 +678,12 @@
       "userId": "1",
       "text": "sdfsd",
       "id": "5HuG1RV"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "sdfsdfs",
+      "id": "VuZ3DJx"
     }
   ],
   "users": [
@@ -694,7 +700,7 @@
         "isAppRedesign": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageBeenOpen": false,
         "isArticlesPageWasOpened": true

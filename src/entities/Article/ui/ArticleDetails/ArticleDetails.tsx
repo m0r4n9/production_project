@@ -29,12 +29,10 @@ import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import { HStack } from '@/shared/ui/redesign/Stack';
 import { VStack } from '@/shared/ui/redesign/Stack';
 import { renderArticleBlock } from './renderBlock';
-import { ToggleFeatures } from '@/shared/lib/features';
+import {toggleFeatures, ToggleFeatures} from '@/shared/lib/features';
 import { Text } from '@/shared/ui/redesign/Text';
-import { Avatar } from '@/shared/ui/redesign/Avatar';
-import { Icon } from '@/shared/ui/redesign/Icon';
 import { AppImage } from '@/shared/ui/redesign/AppImage';
-import { Skeleton } from '@/shared/ui/redesign/Skeleton';
+import { Skeleton as SkeletonRedesign } from '@/shared/ui/redesign/Skeleton';
 
 interface ArticleDetailsProps {
     className?: string;
@@ -86,7 +84,7 @@ const Redesign = () => {
             <Text title={article?.subtitle} size="m" />
             <AppImage
                 fallback={
-                    <Skeleton width={'100%'} height={420} border={'16px'} />
+                    <SkeletonRedesign width={'100%'} height={420} border={'16px'} />
                 }
                 src={article?.img}
                 className={cls.img}
@@ -95,6 +93,45 @@ const Redesign = () => {
         </>
     );
 };
+
+const ArticleDetailsSkeleton = () => {
+    const Skeleton = toggleFeatures({
+        name: 'isAppRedesign',
+        on: () => SkeletonRedesign,
+        off: () => SkeletonDeprecated
+    })
+
+    return (
+        <>
+            <Skeleton
+                className={cls.avatar}
+                width={200}
+                height={200}
+                border={'50%'}
+            />
+            <Skeleton
+                className={cls.title}
+                width={300}
+                height={32}
+            />
+            <Skeleton
+                className={cls.skeleton}
+                width={600}
+                height={24}
+            />
+            <Skeleton
+                className={cls.skeleton}
+                width={'100%'}
+                height={200}
+            />
+            <Skeleton
+                className={cls.skeleton}
+                width={'100%'}
+                height={200}
+            />
+        </>
+    )
+}
 
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const { className, id } = props;
@@ -110,34 +147,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     let content;
     if (isLoading) {
         content = (
-            <>
-                <SkeletonDeprecated
-                    className={cls.avatar}
-                    width={200}
-                    height={200}
-                    border={'50%'}
-                />
-                <SkeletonDeprecated
-                    className={cls.title}
-                    width={300}
-                    height={32}
-                />
-                <SkeletonDeprecated
-                    className={cls.skeleton}
-                    width={600}
-                    height={24}
-                />
-                <SkeletonDeprecated
-                    className={cls.skeleton}
-                    width={'100%'}
-                    height={200}
-                />
-                <SkeletonDeprecated
-                    className={cls.skeleton}
-                    width={'100%'}
-                    height={200}
-                />
-            </>
+            <ArticleDetailsSkeleton/>
         );
     } else if (error) {
         content = (

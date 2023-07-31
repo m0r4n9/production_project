@@ -1,8 +1,10 @@
-import {classNames} from "@/shared/lib/classNames/classNames";
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './StarRating.module.scss';
-import {memo, useState} from 'react';
-import {Icon} from "@/shared/ui/deprecated/Icon";
+import { memo, useState } from 'react';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
+import { Icon } from '@/shared/ui/redesign/Icon';
 import StarIcon from '@/shared/assets/icons/star.svg';
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 
 interface StarRatingProps {
     className?: string;
@@ -13,16 +15,8 @@ interface StarRatingProps {
 
 const stars = [1, 2, 3, 4, 5];
 
-/**
- * @deprecated
- */
 export const StarRating = memo((props: StarRatingProps) => {
-    const {
-        className,
-        size = 50,
-        selectedStars = 0,
-        onSelect
-    } = props;
+    const { className, size = 50, selectedStars = 0, onSelect } = props;
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
@@ -30,13 +24,13 @@ export const StarRating = memo((props: StarRatingProps) => {
         if (!isSelected) {
             setCurrentStarsCount(starsCount);
         }
-    }
+    };
 
     const onLeave = () => {
         if (!isSelected) {
             setCurrentStarsCount(0);
         }
-    }
+    };
 
     const onClick = (starCount: number) => () => {
         if (!isSelected) {
@@ -44,30 +38,48 @@ export const StarRating = memo((props: StarRatingProps) => {
             setCurrentStarsCount(starCount);
             setIsSelected(true);
         }
-    }
+    };
 
     return (
-        <div className={classNames(cls.StarRating, {}, [className])}>
-            {stars.map(starNumber => (
-                <Icon
-                    Svg={StarIcon}
-                    key={starNumber}
-                    height={size}
-                    width={size}
-                    onMouseEnter={onHover(starNumber)}
-                    onMouseLeave={onLeave}
-                    onClick={onClick(starNumber)}
-                    className={classNames(
+        <div
+            className={classNames(
+                toggleFeatures({
+                    name: 'isAppRedesign',
+                    on: () => cls.StarRatingRedesign,
+                    off: () => cls.StarRating,
+                }),
+                {},
+                [className],
+            )}
+        >
+            {stars.map((starNumber) => {
+                const commonProps = {
+                    Svg: StarIcon,
+                    key: `star-rating-${starNumber}`,
+                    height: size,
+                    width: size,
+                    onMouseEnter: onHover(starNumber),
+                    onMouseLeave: onLeave,
+                    onClick: onClick(starNumber),
+                    className: classNames(
                         cls.starIcon,
                         {
                             [cls.hovered]: currentStarsCount >= starNumber,
                             [cls.normal]: !(currentStarsCount >= starNumber),
-                            [cls.selected]: isSelected
+                            [cls.selected]: isSelected,
                         },
-                        []
-                    )}
-                />
-            ))}
+                        [],
+                    ),
+                };
+
+                return (
+                    <ToggleFeatures
+                        feature="isAppRedesign"
+                        on={<Icon clickable={!isSelected} {...commonProps} />}
+                        off={<IconDeprecated {...commonProps} />}
+                    />
+                );
+            })}
         </div>
     );
 });
