@@ -28,7 +28,7 @@ import {ArticleBlockType} from "../../model/consts/consts";
 
 interface ArticleDetailsProps {
     className?: string;
-    id: string;
+    id?: string;
 }
 
 const reducersList: ReducersList = {
