@@ -4,12 +4,12 @@ import {Card} from "@/shared/ui/deprecated/Card";
 import {VStack} from "@/shared/ui/redesign/Stack";
 import {Text} from "@/shared/ui/deprecated/Text";
 import {StarRating} from "@/shared/ui/deprecated/StarRating";
-import {Modal} from "@/shared/ui/deprecated/Modal";
+import {Modal} from "@/shared/ui/redesign/Modal";
 import {Input} from "@/shared/ui/deprecated/Input";
 import {HStack} from "@/shared/ui/redesign/Stack";
 import {Button, ThemeButton} from "@/shared/ui/deprecated/Button";
 import {BrowserView, MobileView} from "react-device-detect";
-import {Drawer} from "@/shared/ui/deprecated/Drawer";
+import {Drawer} from "@/shared/ui/redesign/Drawer";
 
 interface RatingCardProps {
     className?: string;

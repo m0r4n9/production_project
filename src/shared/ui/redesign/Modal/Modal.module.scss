@@ -25,12 +25,23 @@
 .content {
   padding: 20px;
   border-radius: 12px;
-  background: var(--bg-color);
   //background: #d9d9d9;
 
   transition: transform .3s;
   transform: scale(0.5);
   max-width: 60%;
+}
+
+.modalNew {
+  .content {
+    background: var(--light-bg-redesigned);
+  }
+}
+
+.modalOld {
+  .content {
+    background: var(--bg-color);
+  }
 }
 
 .opened {
