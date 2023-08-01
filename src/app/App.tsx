@@ -9,7 +9,7 @@ import { getUserInited, initAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { MainLayout } from '@/shared/layouts';
+import { AppLoaderLayout, MainLayout } from '@/shared/layouts';
 
 const App = () => {
     const { theme } = useTheme();
@@ -23,14 +23,25 @@ const App = () => {
     }, [dispatch, inited]);
 
     if (!inited) {
-        return <PageLoader />;
+        return (
+            <div id="app" className={classNames('app_redesigned', {}, [theme])}>
+                <ToggleFeatures
+                    feature="isAppRedesign"
+                    on={<AppLoaderLayout />}
+                    off={<PageLoader />}
+                />
+            </div>
+        );
     }
 
     return (
         <ToggleFeatures
             feature={'isAppRedesign'}
             on={
-                <div id='app' className={classNames('app_redesigned', {}, [theme])}>
+                <div
+                    id="app"
+                    className={classNames('app_redesigned', {}, [theme])}
+                >
                     <Suspense fallback="">
                         <MainLayout
                             header={<Navbar />}
@@ -42,9 +53,9 @@ const App = () => {
                 </div>
             }
             off={
-                <div id='app' className={classNames('app', {}, [theme])}>
+                <div id="app" className={classNames('app', {}, [theme])}>
                     <Suspense fallback="">
-                        <Navbar/>
+                        <Navbar />
                         <div className="content-page">
                             <Sidebar />
                             <AppRoute />
