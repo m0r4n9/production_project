@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import {FC, memo, forwardRef, ForwardedRef} from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 import { LinkProps, NavLink } from 'react-router-dom';
@@ -11,8 +11,7 @@ interface AppLinkProps extends LinkProps {
     variant?: AppLinkVariant;
 }
 
-// Здесь история как с кнопкой !!!
-export const AppLink: FC<AppLinkProps> = memo((props) => {
+export const AppLink: FC<AppLinkProps> = forwardRef((props: AppLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
     const {
         to,
         className,
@@ -32,6 +31,7 @@ export const AppLink: FC<AppLinkProps> = memo((props) => {
                 ])
             }
             {...otherProps}
+            ref={ref}
         >
             {children}
         </NavLink>

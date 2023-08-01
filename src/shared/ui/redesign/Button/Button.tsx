@@ -1,6 +1,6 @@
 import { classNames, Mods } from '../../../lib/classNames/classNames';
 import cls from './Button.module.scss';
-import React, { ButtonHTMLAttributes, FC, memo, ReactNode } from 'react';
+import React, {ButtonHTMLAttributes, FC, ForwardedRef, forwardRef, memo, ReactNode} from 'react';
 
 export type ButtonVariant = 'clear' | 'outline' | 'filled';
 export type ButtonColor = 'normal' | 'success' | 'error';
@@ -21,7 +21,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 // Button можно использовать с children т.к. в 99% случаев children в button - это просто строка,
 // которая не будет меняться и не будет тянуть за собой сложную древовидную структуру !!!
-export const Button: FC<ButtonProps> = memo((props) => {
+export const Button: FC<ButtonProps> = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     const {
         className,
         variant = 'outline',
@@ -53,6 +53,7 @@ export const Button: FC<ButtonProps> = memo((props) => {
             ])}
             disabled={disabled}
             {...otherProps}
+            ref={ref}
         >
             <div className={cls.addonLeft}>{addonLeft}</div>
             {children}

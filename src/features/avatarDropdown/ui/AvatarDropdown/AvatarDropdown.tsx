@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo, useCallback } from 'react';
+import React, { memo, Suspense, useCallback } from 'react';
 import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
 import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
 import { useSelector } from 'react-redux';
@@ -11,10 +11,14 @@ import {
     userActions,
 } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import {getRouteAdmin, getRouteProfile, getRouteSettings} from '@/shared/const/router';
+import {
+    getRouteAdmin,
+    getRouteProfile,
+    getRouteSettings,
+} from '@/shared/const/router';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Dropdown } from '@/shared/ui/redesign/Popups';
-import {Avatar} from "@/shared/ui/redesign/Avatar";
+import { Avatar } from '@/shared/ui/redesign/Avatar';
 
 interface AvatarDropdownProps {
     className?: string;
@@ -71,9 +75,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
                     className={classNames('', {}, [className])}
                     direction="bottom left"
                     items={items}
-                    trigger={
-                        <Avatar size={40} src={authData.avatar} />
-                    }
+                    trigger={<Avatar size={40} src={authData.avatar} />}
                 />
             }
             off={
@@ -82,7 +84,11 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
                     direction="bottom left"
                     items={items}
                     trigger={
-                        <AvatarDeprecated inverted size={30} src={authData.avatar} />
+                        <AvatarDeprecated
+                            inverted
+                            size={30}
+                            src={authData.avatar}
+                        />
                     }
                 />
             }

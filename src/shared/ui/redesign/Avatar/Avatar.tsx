@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Avatar.module.scss';
-import { CSSProperties, useMemo } from 'react';
+import {CSSProperties, useMemo} from 'react';
 import { AppImage } from '../../redesign/AppImage';
 import UserFilledIcon from '../../../assets/icons/user-filled.svg';
 import { Icon } from '../Icon';
