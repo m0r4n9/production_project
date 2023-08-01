@@ -10,11 +10,14 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { AppLoaderLayout, MainLayout } from '@/shared/layouts';
+import {ScrollToolBar} from "@/widgets/ScrollToolBar";
+import {useAppToolbar} from "./lib/useAppToolbar";
 
 const App = () => {
     const { theme } = useTheme();
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
+    const toolbar = useAppToolbar();
 
     useEffect(() => {
         if (!inited) {
@@ -47,7 +50,7 @@ const App = () => {
                             header={<Navbar />}
                             content={<AppRoute />}
                             sidebar={<Sidebar />}
-                            toolbar={<div></div>}
+                            toolbar={toolbar}
                         />
                     </Suspense>
                 </div>
