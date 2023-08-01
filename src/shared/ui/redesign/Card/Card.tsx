@@ -4,7 +4,7 @@ import { HTMLAttributes, memo, ReactNode } from 'react';
 
 export type CardVariant = 'normal' | 'outline' | 'light';
 export type CardPadding = '0' | '8' | '16' | '24';
-export type CardBorder = 'round' | 'normal';
+export type CardBorder = 'round' | 'normal' | 'partial';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
