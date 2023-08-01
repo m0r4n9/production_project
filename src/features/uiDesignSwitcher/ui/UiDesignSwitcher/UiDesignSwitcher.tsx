@@ -21,7 +21,7 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
     const authData = useSelector(getUserAuthData);
     const [isLoading, setIsLoading] = useState(false);
     const isAppRedesign = getFeatureFlag('isAppRedesign');
-    const forceUpdate = useForceUpdate();
+    // const forceUpdate = useForceUpdate();
 
     const items = [
         {
@@ -46,7 +46,7 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
                 }),
             ).unwrap();
             setIsLoading(false);
-            forceUpdate();
+            // forceUpdate();
         }
     };
 
